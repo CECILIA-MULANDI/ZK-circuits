@@ -1,0 +1,12 @@
+1.Generate .r1cs file
+    circom fibonacci.circom --r1cs
+2.Witness generation
+    circom fibonacci.circom --r1cs --wasm --sym
+3.See statistics 
+    snarkjs r1cs info fibonacci.r1cs
+4.Prints the constraints
+    snarkjs r1cs print fibonacci.r1cs fibonacci.sym
+5.witness file
+    node fibonacci_js/generate_witness.js fibonacci_js/fibonacci.wasm input.json fibonacci_input.wtns
+6.Verify 
+    snarkjs wtns check fibonacci.r1cs fibonacci_input.wtns
